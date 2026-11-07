@@ -1,0 +1,18 @@
+{% extends "packages/base.html" %}
+{% block title %}Home | Tour Package Management System{% endblock %}
+{% block content %}
+<section class="hero">
+    <p class="eyebrow">PLAN · EXPLORE · EXPERIENCE</p>
+    <h1>Tour Package Management System</h1>
+    <p class="lead">Welcome to our travel management application. Manage tour packages, destinations, durations, and prices in one convenient place.</p>
+    <div class="actions">
+        {% if user.is_authenticated %}
+            <a class="button" href="{% url 'add_package' %}">Add Package</a>
+            <a class="button button-light" href="{% url 'package_list' %}">View Packages</a>
+        {% else %}
+            <a class="button" href="{% url 'login' %}">Add Package</a>
+            <a class="button button-light" href="{% url 'login' %}">View Packages</a>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

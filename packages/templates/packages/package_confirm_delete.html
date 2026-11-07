@@ -1,0 +1,15 @@
+{% extends "packages/base.html" %}
+{% block title %}Delete Package{% endblock %}
+{% block content %}
+<section class="panel narrow">
+    <h1>Delete Package</h1>
+    <p>Are you sure you want to delete <strong>{{ package.package_name }}</strong>?</p>
+    <form method="post">
+        {% csrf_token %}
+        <div class="actions">
+            <button class="button danger" type="submit">Yes, Delete</button>
+            <a class="button button-light" href="{% url 'package_list' %}">Cancel</a>
+        </div>
+    </form>
+</section>
+{% endblock %}
